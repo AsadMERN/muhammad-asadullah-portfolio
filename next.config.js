@@ -1,23 +1,16 @@
-const withPWA = require('next-pwa')({
-	dest: 'public',
-	register: true,
-	skipWaiting: true,
-	disable: process.env.NODE_ENV === 'development'
-});
-
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+const isDev = process.env.NODE_ENV === 'development';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	output: isGitHubPages ? 'export' : undefined,
 	basePath: isGitHubPages ? '/muhammad-asadullah-portfolio' : '',
 	assetPrefix: isGitHubPages ? '/muhammad-asadullah-portfolio/' : '',
-	trailingSlash: true,
+	trailingSlash: false,
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
 		unoptimized: isGitHubPages,
-		domains: ['images.unsplash.com'],
 		remotePatterns: [
 			{
 				protocol: 'https',
@@ -27,6 +20,9 @@ const nextConfig = {
 		formats: ['image/webp', 'image/avif'],
 	},
 	headers: async () => {
+		if (isDev) {
+			return [];
+		}
 		return [
 			{
 				source: '/:path*',
@@ -38,15 +34,19 @@ const nextConfig = {
 					{ key: 'X-Content-Type-Options', value: 'nosniff' },
 					{ key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
 					{ key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
+				],
+			},
+			{
+				source: '/_next/static/:path*',
+				headers: [
 					{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
 				],
 			},
 		];
 	},
 	experimental: {
-		// Remove optimizeFonts and modern (they're now default)
 		scrollRestoration: true,
 	},
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;

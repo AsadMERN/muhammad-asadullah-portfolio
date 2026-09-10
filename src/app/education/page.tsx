@@ -1,11 +1,11 @@
-import Education from '@/pages/Education';
+import EducationView from '@/components/views/EducationView';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Education | Muhammad Asadullah',
-	description: 'Academic record of Muhammad Asadullah: BS Software Engineering, FSc Pre-Engineering, and Matric Science (Biology).',
+	title: 'Education & Qualifications | Muhammad Asadullah',
+	description: 'Academic credentials of Muhammad Asadullah: BS Software Engineering (GCUF), FSc Pre-Engineering, and Matric Science.',
 };
 
 export default function EducationPage() {
-	return <Education />;
+	return <EducationView />;
 }
