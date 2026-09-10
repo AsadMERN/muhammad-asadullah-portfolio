@@ -4,12 +4,14 @@ import Footer from '@/components/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mianasad427.github.io/muhammad-asadullah-portfolio/'),
   title: 'Muhammad Asadullah | Software Engineering Portfolio',
   description: 'Europass-style academic portfolio of Muhammad Asadullah, a Software Engineering graduate from Faisalabad, Pakistan.',
   keywords: ['Muhammad Asadullah', 'Software Engineering', 'GCUF', 'Faisalabad', 'Europass CV'],
   authors: [{ name: 'Muhammad Asadullah' }],
   creator: 'Muhammad Asadullah',
-  openGraph: { type: 'profile', title: 'Muhammad Asadullah | Software Engineering Portfolio', description: 'Education, profile and contact information for Muhammad Asadullah.', siteName: 'Muhammad Asadullah Portfolio' },
+  alternates: { canonical: '/' },
+  openGraph: { type: 'profile', url: '/', title: 'Muhammad Asadullah | Software Engineering Portfolio', description: 'Developer profile, projects, skills, education, and contact information for Muhammad Asadullah.', siteName: 'Muhammad Asadullah Portfolio' },
   robots: { index: true, follow: true },
 };
 
