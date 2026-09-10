@@ -129,6 +129,31 @@ a, button { -webkit-tap-highlight-color:transparent; }
 .eyebrow { display:inline-flex; border:1px solid rgba(85,217,255,.28); border-radius:999px; padding:.45rem .8rem; background:rgba(85,217,255,.07); color:var(--cyan); font-size:.72rem; font-weight:800; letter-spacing:.14em; }
 
 @keyframes orbit { to { transform:rotate(360deg); } }
-@media (max-width:900px) { .education-grid,.project-grid,.developer-bento,.skill-grid { grid-template-columns:1fr; }.dev-card-wide { grid-row:auto; min-height:20rem; }.workflow-grid { grid-template-columns:repeat(2,1fr); }.metric-card { min-height:14rem; }.section-block { margin-top:6.5rem; } }
-@media (max-width:640px) { .page-shell { padding-top:8rem; }.hero-title { font-size:3.45rem; }.identity-top { align-items:flex-start; padding:1.35rem; }.avatar-orbit { width:5rem; height:5rem; }.avatar-orbit span { width:3.25rem; height:3.25rem; }.identity-role { margin:1.1rem 1.35rem; }.identity-details { padding:.3rem 1.35rem 1.4rem; }.identity-footer { padding:1rem 1.35rem; }.section-heading { align-items:flex-start; flex-direction:column; }.project-card { min-height:26rem; }.brand-mark strong { max-width:11rem; }.workflow-grid,.about-grid { grid-template-columns:1fr; }.workflow-grid article { min-height:11rem; }.growth-panel { grid-template-columns:1fr; } }
-@media (prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+@media (max-width:900px) { 
+  .education-grid,.project-grid,.developer-bento,.skill-grid { grid-template-columns:1fr; }
+  .dev-card-wide { grid-row:auto; min-height:auto; }
+  .workflow-grid { grid-template-columns:repeat(2,1fr); }
+  .metric-card { min-height:auto; padding:1.4rem; }
+  .section-block { margin-top:5.5rem; }
+}
+@media (max-width:640px) { 
+  .page-shell { padding-top:7.5rem; padding-inline:1rem; }
+  .hero-title { font-size:clamp(2.3rem, 9vw, 3.4rem); line-height:1.05; }
+  .page-title { font-size:clamp(2.2rem, 8vw, 3.5rem); line-height:1.05; }
+  .identity-top { align-items:flex-start; padding:1.25rem; }
+  .avatar-orbit { width:4.8rem; height:4.8rem; }
+  .avatar-orbit span { width:3.2rem; height:3.2rem; }
+  .identity-role { margin:1rem 1.25rem; padding:.85rem; }
+  .identity-details { padding:.3rem 1.25rem 1.25rem; }
+  .identity-footer { padding:.9rem 1.25rem; }
+  .section-heading { align-items:flex-start; flex-direction:column; gap:.8rem; }
+  .project-card { min-height:auto; padding:1.35rem; }
+  .project-detail-card { min-height:auto; padding:1.35rem; }
+  .brand-mark strong { max-width:9.5rem; }
+  .workflow-grid,.about-grid { grid-template-columns:1fr; }
+  .workflow-grid article { min-height:auto; }
+  .growth-panel { grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion:reduce) { 
+  *,*:before,*:after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } 
+}
