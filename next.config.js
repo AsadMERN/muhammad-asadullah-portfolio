@@ -5,11 +5,18 @@ const withPWA = require('next-pwa')({
 	disable: process.env.NODE_ENV === 'development'
 });
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	output: isGitHubPages ? 'export' : undefined,
+	basePath: isGitHubPages ? '/muhammad-asadullah-portfolio' : '',
+	assetPrefix: isGitHubPages ? '/muhammad-asadullah-portfolio/' : '',
+	trailingSlash: true,
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
+		unoptimized: isGitHubPages,
 		domains: ['images.unsplash.com'],
 		remotePatterns: [
 			{
